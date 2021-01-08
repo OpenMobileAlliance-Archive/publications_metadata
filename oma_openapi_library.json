@@ -3,7 +3,21 @@
     "info": {
       "title": "Open Mobile Alliance Library metadata API",
       "description": "Open API template Open Mobile Alliance Library metadata.\n",
-      "version": "0.0.2"
+      "version": "0.0.2",
+      "termsOfService": "https://www.",
+      "contact": {
+        "name": "API Library support",
+        "email": "helpdesk@omaorg.org",
+        "url": "https://omaspecworks.org/contact-us/"
+      },
+      "license": {
+        "name" : "TBD",
+        "url": "TBD"
+      },
+      "externalDocs": {
+        "description" : "TBD",
+        "url" : "TBD"
+      }
     },
     "servers": [
       {
