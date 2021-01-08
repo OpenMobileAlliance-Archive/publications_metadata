@@ -1,6 +1,7 @@
 {
     "id": "http://www.openmobilealliance.org/tech/profiles/JSD/oma_ddf_library_schema.json",
     "organization": {
+        "orgID": 0,
         "name": "Open Mobile Alliance",
         "abbreviation": "OMA",
         "schemaVersion": "1.0",
@@ -10,6 +11,7 @@
     },
     "projects": [
         {
+            "projectID": 0,
             "name": "Lightweight Machine to Machine",
             "abbreviation": "LightweightM2M",
             "description": "description to be added",
@@ -123,6 +125,7 @@
             ],
             "versions": [
                 {
+                    "versionID" : 0,
                     "version": "1.0",
                     "publicationDate": {
                         "year": "2012",
@@ -142,6 +145,7 @@
                     ],
                     "publishedContents": [
                         {
+                            "contentID": 0,
                             "contentMediaType": "application/pdf",
                             "functionalArea": "Requirements",
                             "title": "Lightweight Machine to Machine Requirements",
@@ -164,6 +168,7 @@
                             ]
                         },
                         {
+                            "contentID": 1,
                             "contentMediaType": "application/pdf",
                             "functionalArea": "Enabler Release Definition",
                             "title": "Enabler Release Definition for LightweightM2M",
@@ -186,6 +191,7 @@
                             ]
                         },
                         {
+                            "contentID": 2,
                             "contentMediaType": "application/zip",
                             "functionalArea": "Enabler Release Package",
                             "title": "Enabler Release Package",
@@ -208,6 +214,7 @@
                             ]
                         },
                         {
+                            "contentID": 3,
                             "contentMediaType": "application/pdf",
                             "functionalArea": "Technical Specification",
                             "title": "Lightweight Machine to Machine Technical Specification",
@@ -230,6 +237,7 @@
                             ]
                         },
                         {
+                            "contentID": 4,
                             "contentMediaType": "application/txt",
                             "functionalArea": "Supporting File, TXT",
                             "title": "LwM2M Object",
@@ -254,6 +262,7 @@
                     ]
                 },
                 {
+                    "versionID" : 1,
                     "version": "1.2",
                     "publicationDate": {
                         "year": "2020",
@@ -273,6 +282,7 @@
                     ],
                     "publishedContents": [
                         {
+                            "contentID": 5,
                             "contentMediaType": "application/pdf",
                             "functionalArea": "Technical Specification",
                             "title": "Lightweight Machine to Machine Technical Specification: Core",
@@ -295,6 +305,7 @@
                             ]
                         },
                         {
+                            "contentID": 6,
                             "contentMediaType": "application/pdf",
                             "functionalArea": "Technical Specification",
                             "title": "Lightweight Machine to Machine Technical Specification: Transport Bindings",
@@ -317,6 +328,7 @@
                             ]
                         },
                         {
+                            "contentID": 7,
                             "contentMediaType": "application/pdf",
                             "functionalArea": "Requirements",
                             "title": "Lightweight Machine to Machine Requirements",
@@ -339,6 +351,7 @@
                             ]
                         },
                         {
+                            "contentID": 8,
                             "contentMediaType": "application/pdf",
                             "functionalArea": "Enabler Release Definition",
                             "title": "Enabler Release Definition for LightweightM2M",
@@ -361,6 +374,7 @@
                             ]
                         },
                         {
+                            "contentID": 8,
                             "contentMediaType": "application/zip",
                             "functionalArea": "Enabler Release Package",
                             "title": "Enabler Release Package",
@@ -383,6 +397,7 @@
                             ]
                         },
                         {
+                            "contentID": 9,
                             "contentMediaType": "application/xml",
                             "functionalArea": "Supporting File, XSD",
                             "title": "LwM2M Schema",

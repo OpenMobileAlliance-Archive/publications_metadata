@@ -10,6 +10,7 @@
     "organization": {
       "type": "object",
       "properties": {
+        "orgID":{"type": "integer"},
         "name": { "type": "string" },
         "abbreviation": { "type": "string" },
         "schemaVersion": { "type": "string" },
@@ -33,6 +34,7 @@
         {
           "type": "object",
           "properties": {
+            "projectID": { "type": "integer" },
             "name": { "type": "string" },
             "abbreviation": { "type": "string" },
             "description": { "type": "string" },
@@ -63,6 +65,7 @@
               "items": {
                   "type": "object",
                   "properties": {
+                    "versionID" : { "type": "integer" },
                     "version": { "type": "string" },
                     "publicationDate": {
                       "$ref": "#/definitions/date",
@@ -85,6 +88,7 @@
                             {
                               "type": "object",
                               "properties": {
+                                "contentID" : { "type": "integer" },
                                 "contentMediaType": { "type": "string" },
                                 "functionalArea": { "type": "string" },
                                 "title": { "type": "string" },
