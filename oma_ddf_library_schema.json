@@ -7,7 +7,7 @@
   "default":"default_value", 
   "type": "object",
   "properties": {
-    "organization": {
+    "publisher": {
       "type": "object",
       "properties": {
         "orgID":{"type": "integer"},

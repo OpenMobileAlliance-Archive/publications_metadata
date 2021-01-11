@@ -66,12 +66,12 @@
           }
         }
       },
-      "/organizations": {
+      "/publishers": {
         "get": {
-          "summary": "Represents list of Organizations",
-          "description": "This resource represents a list of Organization in the system. This list can be filtered by providing filter parameters\n",
+          "summary": "Represents list of Publishers",
+          "description": "This resource represents a list of Publishers in the system. This list can be filtered by providing filter parameters\n",
           "tags": [
-            "organizations"
+            "publishers"
           ],
           "parameters": [
             {
@@ -90,7 +90,7 @@
                   "schema": {
                     "type": "array",
                     "items": {
-                      "$ref": "#/components/schemas/Organization"
+                      "$ref": "#/components/schemas/publisher"
                     }
                   }
                 }
@@ -105,18 +105,18 @@
           }
         }
       },
-      "/organizations/{id}": {
+      "/publishers/{id}": {
         "get": {
-          "summary": "Represents an Organization",
-          "description": "This resource represents an individual Organization in the system. Each Organization is identified by an `id`.\n",
+          "summary": "Represents a Publisher",
+          "description": "This resource represents an individual Publisher in the system. Each Publisher is identified by an `id`.\n",
           "tags": [
-            "organizations"
+            "publishers"
           ],
           "parameters": [
             {
               "in": "path",
               "name": "id",
-              "description": "Organization ID to fetch",
+              "description": "Publisher ID to fetch",
               "schema": {
                 "type": "string"
               },
@@ -129,7 +129,7 @@
               "content": {
                 "application/json": {
                   "schema": {
-                    "$ref": "#/components/schemas/Organization"
+                    "$ref": "#/components/schemas/publisher"
                   }
                 }
               }
@@ -143,18 +143,18 @@
           }
         }
       },
-      "/organizations/{id}/projects": {
+      "/publishers/{id}/projects": {
         "get": {
-          "summary": "Represents list of Projects of an Organization",
-          "description": "This resource represents Projects an individual Organization in the system where Organization is identified by an `id`.\n",
+          "summary": "Represents list of Projects of a Publisher",
+          "description": "This resource represents Projects an individual Publisher in the system where Publisher is identified by an `id`.\n",
           "tags": [
-            "organizations"
+            "publishers"
           ],
           "parameters": [
             {
               "in": "path",
               "name": "id",
-              "description": "Organization ID to fetch",
+              "description": "Publisher ID to fetch",
               "schema": {
                 "type": "string"
               },
@@ -225,7 +225,7 @@
       },
       "/projects/{id}": {
         "get": {
-          "summary": "Represents an Project",
+          "summary": "Represents a Project",
           "description": "This resource represents an individual Project in the system identified by an `id`.\n",
           "tags": [
             "projects"
@@ -261,10 +261,10 @@
           }
         }
       },
-      "/projects/{id}/organization": {
+      "/projects/{id}/publisher": {
         "get": {
-          "summary": "Represents an Organization of a given Project",
-          "description": "This resource represents an Organization of individual Project identified by an `id`.\n",
+          "summary": "Represents a Publisher of a given Project",
+          "description": "This resource represents a Publisher of individual Project identified by an `id`.\n",
           "tags": [
             "projects"
           ],
@@ -285,7 +285,7 @@
               "content": {
                 "application/json": {
                   "schema": {
-                    "$ref": "#/components/schemas/Organization"
+                    "$ref": "#/components/schemas/publisher"
                   }
                 }
               }
@@ -302,7 +302,7 @@
     },
     "components": {
       "schemas": {
-        "Organization": {
+        "publisher": {
           "type": "object",
           "properties": {
             "id": {
@@ -355,7 +355,7 @@
             "description": {
               "type": "string"
             },
-            "organizationId": {
+            "publisherId": {
               "type": "string"
             },
             "resources": {
@@ -377,7 +377,7 @@
           "required": [
             "id",
             "name",
-            "organizationId"
+            "publisherId"
           ],
           "additionalProperties": false
         },
