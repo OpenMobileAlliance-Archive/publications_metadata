@@ -1,7 +1,7 @@
 {
     "id": "http://www.openmobilealliance.org/tech/profiles/JSD/oma_ddf_library_schema.json",
     "publisher": {
-        "orgID": 0,
+        "publisherID": 0,
         "name": "Open Mobile Alliance",
         "abbreviation": "OMA",
         "schemaVersion": "1.0",

@@ -10,7 +10,7 @@
     "publisher": {
       "type": "object",
       "properties": {
-        "orgID":{"type": "integer"},
+        "publisherID":{"type": "integer"},
         "name": { "type": "string" },
         "abbreviation": { "type": "string" },
         "schemaVersion": { "type": "string" },
@@ -25,7 +25,7 @@
         }
       },
       "additionalProperties": false,
-      "required": [ "name", "abbreviation", "schemaVersion", "url", "about", "email" ]
+      "required": [ "publisherID", "name", "abbreviation", "schemaVersion", "url", "about", "email" ]
     },
     "projects": {
       "type": "array",
@@ -108,20 +108,20 @@
                                 "abstract": { "type": "string" },
                                 "contentTags": { "$ref": "#/definitions/tags" }
                               },
-                              "required": [ "contentMediaType", "functionalArea", "title", "status", "version", "contentDate", "fileName", "url"
+                              "required": [ "contentID", "contentMediaType", "functionalArea", "title", "status", "version", "contentDate", "fileName", "url"
                               ],
                               "additionalProperties": false
                             }
                         }
                   },
                   "additionalProperties": false,
-                  "required": [ "version", "publicationDate", "status"
+                  "required": [ "versionID", "version", "publicationDate", "status"
                   ]
                 }
             }
           },
           "additionalProperties": false,
-          "required": [ "name", "description" ]
+          "required": [ "projectID", "name", "description" ]
         }
     }
   },
