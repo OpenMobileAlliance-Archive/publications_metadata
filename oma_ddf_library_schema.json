@@ -125,7 +125,7 @@
         }
     }
   },
-  "required": [ "organization", "projects" ],
+  "required": [ "publisher", "projects" ],
   "definitions": {
         "date": {
           "type": "object",
