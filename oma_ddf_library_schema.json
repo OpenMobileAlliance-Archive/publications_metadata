@@ -7,9 +7,10 @@
   "default":"default_value", 
   "type": "object",
   "properties": {
-    "organization": {
+    "publisher": {
       "type": "object",
       "properties": {
+        "publisherID":{"type": "integer"},
         "name": { "type": "string" },
         "abbreviation": { "type": "string" },
         "schemaVersion": { "type": "string" },
@@ -24,7 +25,7 @@
         }
       },
       "additionalProperties": false,
-      "required": [ "name", "abbreviation", "schemaVersion", "url", "about", "email" ]
+      "required": [ "publisherID", "name", "abbreviation", "schemaVersion", "url", "about", "email" ]
     },
     "projects": {
       "type": "array",
@@ -33,6 +34,7 @@
         {
           "type": "object",
           "properties": {
+            "projectID": { "type": "integer" },
             "name": { "type": "string" },
             "abbreviation": { "type": "string" },
             "description": { "type": "string" },
@@ -63,6 +65,7 @@
               "items": {
                   "type": "object",
                   "properties": {
+                    "versionID" : { "type": "integer" },
                     "version": { "type": "string" },
                     "publicationDate": {
                       "$ref": "#/definitions/date",
@@ -85,6 +88,7 @@
                             {
                               "type": "object",
                               "properties": {
+                                "contentID" : { "type": "integer" },
                                 "contentMediaType": { "type": "string" },
                                 "functionalArea": { "type": "string" },
                                 "title": { "type": "string" },
@@ -104,24 +108,24 @@
                                 "abstract": { "type": "string" },
                                 "contentTags": { "$ref": "#/definitions/tags" }
                               },
-                              "required": [ "contentMediaType", "functionalArea", "title", "status", "version", "contentDate", "fileName", "url"
+                              "required": [ "contentID", "contentMediaType", "functionalArea", "title", "status", "version", "contentDate", "fileName", "url"
                               ],
                               "additionalProperties": false
                             }
                         }
                   },
                   "additionalProperties": false,
-                  "required": [ "version", "publicationDate", "status"
+                  "required": [ "versionID", "version", "publicationDate", "status"
                   ]
                 }
             }
           },
           "additionalProperties": false,
-          "required": [ "name", "description" ]
+          "required": [ "projectID", "name", "description" ]
         }
     }
   },
-  "required": [ "organization", "projects" ],
+  "required": [ "publisher", "projects" ],
   "definitions": {
         "date": {
           "type": "object",
