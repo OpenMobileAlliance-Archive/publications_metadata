@@ -117,6 +117,7 @@
                     "resourceURL": "http://www.openmobilealliance.org/release/ObjLwM2M_Server/"
                 }
             ],
+            "projectURL": "http://www.openmobilealliance.org/release/LightweightM2M/",
             "projectTags": [
                 "#tag1",
                 "#tag2",
@@ -143,6 +144,7 @@
                         "#tag3",
                         "#tag4"
                     ],
+                    "versionURL":"http://www.openmobilealliance.org/release/LightweightM2M/V1_0-20121002-C/",
                     "publishedContents": [
                         {
                             "contentID": 0,
@@ -274,6 +276,7 @@
                         "year": "2020",
                         "month": "11"
                     },
+                    "versionURL":"http://www.openmobilealliance.org/release/LightweightM2M/V1_2-20201110-A/",
                     "versionTags": [
                         "#tag1",
                         "#tag2",

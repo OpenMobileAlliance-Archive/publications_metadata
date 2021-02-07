@@ -52,6 +52,7 @@
                   "additionalProperties": false
                 }
             },
+            "projectURL": {"$ref":"#/definitions/url"},
             "projectTags": { "$ref": "#/definitions/tags" },
             "versions": {
               "type": "array",
@@ -72,6 +73,7 @@
                       "$ref": "#/definitions/date",
                       "required": [ "year", "month" ] 
                      },
+                    "versionURL": {"$ref":"#/definitions/url"},
                     "versionTags": { "$ref": "#/definitions/tags" },
                     "publishedContents": 
                       {
@@ -104,13 +106,13 @@
                         }
                   },
                   "additionalProperties": false,
-                  "required": [ "versionID", "version", "publicationDate", "versionStatus"
+                  "required": [ "versionID", "version", "publicationDate", "versionStatus", "versionURL"
                   ]
                 }
             }
           },
           "additionalProperties": false,
-          "required": [ "projectID", "name", "description" ]
+          "required": [ "projectID", "name", "description", "projectURL" ]
         }
     }
   },
