@@ -14,10 +14,7 @@
         "name": { "type": "string" },
         "abbreviation": { "type": "string" },
         "schemaVersion": { "type": "string" },
-        "url": {
-          "type": "string",
-          "format":"uri"
-        },
+        "publisherURL": { "$ref": "#/definitions/url"},
         "about": { "type": "string" },
         "email": {
           "type": "string",
@@ -25,7 +22,7 @@
         }
       },
       "additionalProperties": false,
-      "required": [ "publisherID", "name", "abbreviation", "schemaVersion", "url", "about", "email" ]
+      "required": [ "publisherID", "name", "abbreviation", "schemaVersion", "publisherURL", "about", "email" ]
     },
     "projects": {
       "type": "array",
@@ -41,7 +38,7 @@
             "resources": {
               "type": "array",
               "uniqueItems": true,
-              "items":  {                    
+              "items":  {
                   "type": "object",
                   "minItems": 1,
                   "uniqueItems": true,
@@ -50,10 +47,7 @@
                       "enum":["Logo", "Image", "Issue", "Registry", "Editor", "Overview", "MD2HTML", "Dependency", null ]
                     },
                     "name": { "type": "string" },
-                    "url": {
-                      "type": "string",
-                      "format":"uri"
-                    }
+                    "resourceURL": { "$ref": "#/definitions/url"}
                   },
                   "additionalProperties": false
                 }
@@ -71,9 +65,8 @@
                       "$ref": "#/definitions/date",
                       "required": [ "year","month", "day" ] 
                      },
-                    "status": {
-                      "type": "string",
-                      "enum":["Draft", "Candidate", "Approved", "Historic", null] 
+                    "versionStatus": {
+                      "$ref": "#/definitions/status"
                      },
                     "updatedDate": { 
                       "$ref": "#/definitions/date",
@@ -92,30 +85,26 @@
                                 "contentMediaType": { "type": "string" },
                                 "functionalArea": { "type": "string" },
                                 "title": { "type": "string" },
-                                "status": {
-                                  "type": "string",
-                                  "enum":["Draft", "Candidate", "Approved", "Historic"]
-                                },
+                                "contentStatus": {
+                                  "$ref": "#/definitions/status"
+                                 },
                                 "version": { "type": "string" },
                                 "contentDate": { "$ref": "#/definitions/date",
                                   "required": [ "year", "month", "day" ] 
                                 },
                                 "fileName": { "type": "string" },
-                                "url": {
-                                  "type": "string",
-                                  "format":"uri"
-                                },
+                                "contentURL": {"$ref":"#/definitions/url"},
                                 "abstract": { "type": "string" },
                                 "contentTags": { "$ref": "#/definitions/tags" }
                               },
-                              "required": [ "contentID", "contentMediaType", "functionalArea", "title", "status", "version", "contentDate", "fileName", "url"
+                              "required": [ "contentID", "contentMediaType", "functionalArea", "title", "contentStatus", "version", "contentDate", "fileName", "contentURL"
                               ],
                               "additionalProperties": false
                             }
                         }
                   },
                   "additionalProperties": false,
-                  "required": [ "versionID", "version", "publicationDate", "status"
+                  "required": [ "versionID", "version", "publicationDate", "versionStatus"
                   ]
                 }
             }
@@ -134,11 +123,19 @@
             "month":{ "type": "string", "pattern": "^0[1-9]|1[012]$" },
             "date": { "type": "string", "pattern": "^[1-31]{2}$" }
           }
-    },
+      },
         "tags": {
            "type": "array",
            "uniqueItems": true,
            "items": { "type": "string" }
-      }
+      },
+          "status": {
+              "type": "string",
+              "enum":["D", "C", "A", "H", null] 
+      },
+      "url": {
+          "type": "string",
+          "format":"uri"
+        }
   }
 }
