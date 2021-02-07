@@ -14,10 +14,7 @@
           "name": { "type": "string" },
           "abbreviation": { "type": "string" },
           "schemaVersion": { "type": "string" },
-          "url": {
-            "type": "string",
-            "format":"uri"
-          },
+          "publisherURL": { "$ref": "#/definitions/url"},
           "about": { "type": "string" },
           "email": {
             "type": "string",
@@ -25,7 +22,7 @@
           }
         },
         "additionalProperties": false,
-        "required": [ "publisherID", "name", "abbreviation", "schemaVersion", "url", "about", "email" ]
+        "required": [ "publisherID", "name", "abbreviation", "schemaVersion", "publisherURL", "about", "email" ]
       },
       "projects": {
         "type": "array",
@@ -50,10 +47,7 @@
                         "enum":["Logo", "Image", "Issue", "Registry", "Editor", "Overview", "MD2HTML", "Dependency", null ]
                       },
                       "name": { "type": "string" },
-                      "url": {
-                        "type": "string",
-                        "format":"uri"
-                      }
+                      "resourceURL": { "$ref": "#/definitions/url"}
                     },
                     "additionalProperties": false
                   }
@@ -99,14 +93,11 @@
                                     "required": [ "year", "month", "day" ] 
                                   },
                                   "fileName": { "type": "string" },
-                                  "url": {
-                                    "type": "string",
-                                    "format":"uri"
-                                  },
+                                  "contentURL": {"$ref":"#/definitions/url"},
                                   "abstract": { "type": "string" },
                                   "contentTags": { "$ref": "#/definitions/tags" }
                                 },
-                                "required": [ "contentID", "contentMediaType", "functionalArea", "title", "contentStatus", "version", "contentDate", "fileName", "url"
+                                "required": [ "contentID", "contentMediaType", "functionalArea", "title", "contentStatus", "version", "contentDate", "fileName", "contentURL"
                                 ],
                                 "additionalProperties": false
                               }
@@ -141,7 +132,11 @@
             "status": {
                 "type": "string",
                 "enum":["D", "C", "A", "H", null] 
-        }
+        },
+        "url": {
+            "type": "string",
+            "format":"uri"
+          }
     }
   }
   
