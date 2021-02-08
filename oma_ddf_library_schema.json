@@ -23,7 +23,7 @@
           "type": "string"
         },
         "url": {
-          "$ref": "#/definitions/url"
+          "$ref": "#/definitions/URL"
         },
         "about": {
           "type": "string"
@@ -88,17 +88,17 @@
                   "type": "string"
                 },
                 "url": {
-                  "$ref": "#/definitions/url"
+                  "$ref": "#/definitions/URL"
                 }
               },
               "additionalProperties": false
             }
           },
           "url": {
-            "$ref": "#/definitions/url"
+            "$ref": "#/definitions/URL"
           },
           "tags": {
-            "$ref": "#/definitions/tags"
+            "$ref": "#/definitions/Tags"
           },
           "versions": {
             "type": "array",
@@ -113,7 +113,7 @@
                   "type": "string"
                 },
                 "publicationDate": {
-                  "$ref": "#/definitions/date",
+                  "$ref": "#/definitions/Date",
                   "required": [
                     "year",
                     "month",
@@ -121,20 +121,20 @@
                   ]
                 },
                 "status": {
-                  "$ref": "#/definitions/status"
+                  "$ref": "#/definitions/Status"
                 },
                 "updatedDate": {
-                  "$ref": "#/definitions/date",
+                  "$ref": "#/definitions/Date",
                   "required": [
                     "year",
                     "month"
                   ]
                 },
                 "url": {
-                  "$ref": "#/definitions/url"
+                  "$ref": "#/definitions/URL"
                 },
                 "tags": {
-                  "$ref": "#/definitions/tags"
+                  "$ref": "#/definitions/Tags"
                 },
                 "publishedContents": {
                   "type": "array",
@@ -155,13 +155,13 @@
                         "type": "string"
                       },
                       "status": {
-                        "$ref": "#/definitions/status"
+                        "$ref": "#/definitions/Status"
                       },
                       "version": {
                         "type": "string"
                       },
                       "date": {
-                        "$ref": "#/definitions/date",
+                        "$ref": "#/definitions/Date",
                         "required": [
                           "year",
                           "month",
@@ -172,13 +172,13 @@
                         "type": "string"
                       },
                       "url": {
-                        "$ref": "#/definitions/url"
+                        "$ref": "#/definitions/URL"
                       },
                       "abstract": {
                         "type": "string"
                       },
                       "tags": {
-                        "$ref": "#/definitions/tags"
+                        "$ref": "#/definitions/Tags"
                       }
                     },
                     "required": [
@@ -222,7 +222,7 @@
     "projects"
   ],
   "definitions": {
-    "date": {
+    "Date": {
       "type": "object",
       "properties": {
         "year": {
@@ -239,14 +239,14 @@
         }
       }
     },
-    "tags": {
+    "Tags": {
       "type": "array",
       "uniqueItems": true,
       "items": {
         "type": "string"
       }
     },
-    "status": {
+    "Status": {
       "type": "string",
       "enum": [
         "D",
@@ -256,7 +256,7 @@
         null
       ]
     },
-    "url": {
+    "URL": {
       "type": "string",
       "format": "uri"
     }
