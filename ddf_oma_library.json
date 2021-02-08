@@ -64,7 +64,7 @@
                 {
                     "name": "ObjLwM2M Conn Stat",
                     "resourceType": "Dependency",
-                    "resourceURL": "http://www.openmobilealliance.org/release/ObjLwM2M_Conn_Stat/"
+                    "url": "http://www.openmobilealliance.org/release/ObjLwM2M_Conn_Stat/"
                 },
                 {
                     "name": "ObjLwM2M COSE",
@@ -222,7 +222,7 @@
                             "title": "Lightweight Machine to Machine Technical Specification",
                             "status": "C",
                             "version": "1.0",
-                            "contentDate": {
+                            "date": {
                                 "year": "2013",
                                 "month": "12",
                                 "day": "10"
