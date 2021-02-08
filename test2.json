@@ -1,0 +1,170 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": "Decide what version of the JSON schema should be pointing to",
+    "id": "http://www.openmobilealliance.org/tech/profiles/JSD/oma_ddf_library_schema.json",
+    "title": "OMA Specifications Library",
+    "description": "This JSON schema describes the metadata and structure or OMA Specifications Library",
+    "default": "default_value",
+    "type": "object",
+    "properties": {
+        "publisher": {
+            "$ref":"#/definitions/Publisher"
+        },
+        "projects": {
+            "type": "array",
+            "uniqueItems": true,
+            "items":{
+                "$ref":"#/definitions/Project"
+            }
+        }
+    },
+    "definitions": {
+        "Publisher": {
+            "type": "object",
+            "properties": {
+              "id":{"type": "integer"},
+              "name": { "type": "string" },
+              "abbreviation": { "type": "string" },
+              "schemaVersion": { "type": "string" },
+              "url": { "$ref": "#/definitions/url"},
+              "about": { "type": "string" },
+              "email": {
+                "type": "string",
+                "format": "email"
+              }
+            },
+            "additionalProperties": false,
+            "required": [ "publisherID", "name", "abbreviation", "schemaVersion", "publisherURL", "about", "email" ]
+          },
+        "Project": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "name": { "type": "string" },
+              "abbreviation": { "type": "string" },
+              "description": { "type": "string" },
+              "resources": {
+                    "$ref":"#/definitions/Resources"
+              },
+              "projectURL": {"$ref":"#/definitions/url"},
+              "projectTags": { "$ref": "#/definitions/tags" },
+              "versions": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                    "type": "object",
+                    "properties": {
+                      "versionID" : { "type": "integer" },
+                      "version": { "type": "string" },
+                      "publicationDate": {
+                        "$ref": "#/definitions/date",
+                        "required": [ "year","month", "day" ] 
+                       },
+                      "versionStatus": {
+                        "$ref": "#/definitions/status"
+                       },
+                      "updatedDate": { 
+                        "$ref": "#/definitions/date",
+                        "required": [ "year", "month" ] 
+                       },
+                      "versionURL": {"$ref":"#/definitions/url"},
+                      "versionTags": { "$ref": "#/definitions/tags" },
+                      "publishedContents": 
+                        {
+                            "type": "array",
+                            "uniqueItems": true,
+                            "items":
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "contentID" : { "type": "integer" },
+                                  "contentMediaType": { "type": "string" },
+                                  "functionalArea": { "type": "string" },
+                                  "title": { "type": "string" },
+                                  "contentStatus": {
+                                    "$ref": "#/definitions/status"
+                                   },
+                                  "version": { "type": "string" },
+                                  "contentDate": { "$ref": "#/definitions/date",
+                                    "required": [ "year", "month", "day" ] 
+                                  },
+                                  "fileName": { "type": "string" },
+                                  "contentURL": {"$ref":"#/definitions/url"},
+                                  "abstract": { "type": "string" },
+                                  "contentTags": { "$ref": "#/definitions/tags" }
+                                },
+                                "required": [ "contentID", "contentMediaType", "functionalArea", "title", "contentStatus", "version", "contentDate", "fileName", "contentURL"
+                                ],
+                                "additionalProperties": false
+                              }
+                          }
+                    },
+                    "additionalProperties": false,
+                    "required": [ "versionID", "version", "publicationDate", "versionStatus", "versionURL"
+                    ]
+                  }
+              }
+            },
+            "additionalProperties": false,
+            "required": [ "projectID", "name", "description", "projectURL" ]
+        },
+        "Resources": {
+            "type": "array",
+            "uniqueItems": true,
+            "items":  {
+                "$ref":"#/definitions/Resource"
+              }
+        },
+        "Resource": {
+            "type": "object",
+            "minItems": 1,
+            "uniqueItems": true,
+            "properties": {
+              "resourceType": { "type": "string",
+                "enum":["Logo", "Image", "Issue", "Registry", "Editor", "Overview", "MD2HTML", "Dependency", null ]
+              },
+              "name": { "type": "string" },
+              "resourceURL": { "$ref": "#/definitions/url"}
+            },
+            "additionalProperties": false
+        },
+        "date": {
+            "type": "object",
+            "properties": {
+                "year": {
+                    "type": "string",
+                    "pattern": "^[0-9]{4}$"
+                },
+                "month": {
+                    "type": "string",
+                    "pattern": "^0[1-9]|1[012]$"
+                },
+                "date": {
+                    "type": "string",
+                    "pattern": "^[1-31]{2}$"
+                }
+            }
+        },
+        "tags": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+                "type": "string"
+            }
+        },
+        "status": {
+            "type": "string",
+            "enum": [
+                "D",
+                "C",
+                "A",
+                "H",
+                null
+            ]
+        },
+        "url": {
+            "type": "string",
+            "format": "uri"
+        }
+    }
+}
