@@ -22,10 +22,10 @@
         "Publisher": {
             "type": "object",
             "properties": {
-              "id":{"type": "integer"},
+              "id":{"type": "string"},
               "name": { "type": "string" },
               "abbreviation": { "type": "string" },
-              "schemaVersion": { "type": "string" },
+              "version": { "type": "string" },
               "url": { "$ref": "#/definitions/url"},
               "about": { "type": "string" },
               "email": {
@@ -34,7 +34,7 @@
               }
             },
             "additionalProperties": false,
-            "required": [ "publisherID", "name", "abbreviation", "schemaVersion", "publisherURL", "about", "email" ]
+            "required": [ "id", "name", "abbreviation", "version", "url", "about", "email" ]
           },
         "Project": {
             "type": "object",
@@ -46,29 +46,29 @@
               "resources": {
                     "$ref":"#/definitions/Resources"
               },
-              "projectURL": {"$ref":"#/definitions/url"},
-              "projectTags": { "$ref": "#/definitions/tags" },
+              "url": {"$ref":"#/definitions/URL"},
+              "tags": { "$ref": "#/definitions/Tags" },
               "versions": {
                 "type": "array",
                 "uniqueItems": true,
                 "items": {
                     "type": "object",
                     "properties": {
-                      "versionID" : { "type": "integer" },
+                      "id" : { "type": "string" },
                       "version": { "type": "string" },
                       "publicationDate": {
-                        "$ref": "#/definitions/date",
+                        "$ref": "#/definitions/Date",
                         "required": [ "year","month", "day" ] 
                        },
-                      "versionStatus": {
-                        "$ref": "#/definitions/status"
+                      "status": {
+                        "$ref": "#/definitions/Status"
                        },
                       "updatedDate": { 
-                        "$ref": "#/definitions/date",
+                        "$ref": "#/definitions/Date",
                         "required": [ "year", "month" ] 
                        },
-                      "versionURL": {"$ref":"#/definitions/url"},
-                      "versionTags": { "$ref": "#/definitions/tags" },
+                      "url": {"$ref":"#/definitions/URL"},
+                      "tag": { "$ref": "#/definitions/Tags" },
                       "publishedContents": 
                         {
                             "type": "array",
@@ -77,36 +77,36 @@
                               {
                                 "type": "object",
                                 "properties": {
-                                  "contentID" : { "type": "integer" },
+                                  "id" : { "type": "string" },
                                   "contentMediaType": { "type": "string" },
                                   "functionalArea": { "type": "string" },
                                   "title": { "type": "string" },
-                                  "contentStatus": {
-                                    "$ref": "#/definitions/status"
+                                  "status": {
+                                    "$ref": "#/definitions/Status"
                                    },
                                   "version": { "type": "string" },
-                                  "contentDate": { "$ref": "#/definitions/date",
+                                  "date": { "$ref": "#/definitions/Date",
                                     "required": [ "year", "month", "day" ] 
                                   },
                                   "fileName": { "type": "string" },
-                                  "contentURL": {"$ref":"#/definitions/url"},
+                                  "url": {"$ref":"#/definitions/URL"},
                                   "abstract": { "type": "string" },
-                                  "contentTags": { "$ref": "#/definitions/tags" }
+                                  "tags": { "$ref": "#/definitions/Tags" }
                                 },
-                                "required": [ "contentID", "contentMediaType", "functionalArea", "title", "contentStatus", "version", "contentDate", "fileName", "contentURL"
+                                "required": [ "id", "contentMediaType", "functionalArea", "title", "status", "version", "date", "fileName", "url"
                                 ],
                                 "additionalProperties": false
                               }
                           }
                     },
                     "additionalProperties": false,
-                    "required": [ "versionID", "version", "publicationDate", "versionStatus", "versionURL"
+                    "required": [ "id", "version", "date", "status", "url"
                     ]
                   }
               }
             },
             "additionalProperties": false,
-            "required": [ "projectID", "name", "description", "projectURL" ]
+            "required": [ "id", "name", "description", "url" ]
         },
         "Resources": {
             "type": "array",
