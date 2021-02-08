@@ -98,7 +98,7 @@
             "$ref": "#/definitions/url"
           },
           "tags": {
-            "$ref": "#/definitions/tags"
+            "$ref": "#/definitions/tag"
           },
           "versions": {
             "type": "array",
@@ -134,7 +134,7 @@
                   "$ref": "#/definitions/url"
                 },
                 "tags": {
-                  "$ref": "#/definitions/tags"
+                  "$ref": "#/definitions/tag"
                 },
                 "publishedContents": {
                   "type": "array",
