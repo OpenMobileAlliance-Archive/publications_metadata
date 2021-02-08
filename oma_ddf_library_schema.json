@@ -98,7 +98,7 @@
             "$ref": "#/definitions/url"
           },
           "tags": {
-            "$ref": "#/definitions/tag"
+            "$ref": "#/definitions/tags"
           },
           "versions": {
             "type": "array",
@@ -134,7 +134,7 @@
                   "$ref": "#/definitions/url"
                 },
                 "tags": {
-                  "$ref": "#/definitions/tag"
+                  "$ref": "#/definitions/tags"
                 },
                 "publishedContents": {
                   "type": "array",
@@ -178,7 +178,7 @@
                         "type": "string"
                       },
                       "tags": {
-                        "$ref": "#/definitions/tag"
+                        "$ref": "#/definitions/tags"
                       }
                     },
                     "required": [
@@ -239,7 +239,7 @@
         }
       }
     },
-    "tag": {
+    "tags": {
       "type": "array",
       "uniqueItems": true,
       "items": {
