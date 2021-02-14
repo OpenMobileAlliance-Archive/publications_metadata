@@ -86,8 +86,8 @@
                     "$ref": "#/definitions/URL"
                 },
                 "tags": {
-                     "type": "array",
-                     "uniqueItems": true,
+                    "type": "array",
+                    "uniqueItems": true,
                     "$ref": "#/definitions/Tags"
                 },
                 "versions": {
@@ -134,133 +134,145 @@
         },
         "Version": {
             "items": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "version": {
-                    "type": "string"
-                },
-                "publicationDate": {
-                    "$ref":"#/definitions/Date"
-                },
-                "status": {
-                    "$ref": "#/definitions/Status"
-                },
-                "updatedDate": {
-                    "$ref": "#/definitions/Date",
-                    "required": [
-                        "year",
-                        "month"
-                    ]
-                },
-                "url": {
-                    "$ref": "#/definitions/URL"
-                },
-                "tags": {
-                    "$ref": "#/definitions/Tags"
-                },
-                "publishedContents": {
-                    "type": "array",
-                    "uniqueItems": true,
-                    "$ref":"#/definitions/PublishedContent"
-                }
-            },
-            "additionalProperties": false,
-            "required": [
-                "id",
-                "version",
-                "publicationDate",
-                "status",
-                "url"
-            ]
-        }
-        },
-                    "PublishedContent": {
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "id": {
-                                "type": "string"
-                            },
-                            "contentMediaType": {
-                                "type": "string"
-                            },
-                            "functionalArea": {
-                                "type": "string"
-                            },
-                            "title": {
-                                "type": "string"
-                            },
-                            "status": {
-                                "$ref": "#/definitions/Status"
-                            },
-                            "version": {
-                                "type": "string"
-                            },
-                            "date": {
-                                "$ref": "#/definitions/Date",
-                                "required": [
-                                    "year",
-                                    "month",
-                                    "day"
-                                ]
-                            },
-                            "fileName": {
-                                "type": "string"
-                            },
-                            "url": {
-                                "$ref": "#/definitions/URL"
-                            },
-                            "abstract": {
-                                "type": "string"
-                            },
-                            "tags": {
-                                "$ref": "#/definitions/Tags"
-                            }
-                        },
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "string"
+                    },
+                    "publicationDate": {
+                        "$ref": "#/definitions/Date",
                         "required": [
-                            "id",
-                            "contentMediaType",
-                            "functionalArea",
-                            "title",
-                            "status",
-                            "version",
-                            "date",
-                            "fileName",
-                            "url"
-                        ],
-                        "additionalProperties": false
+                            "year",
+                            "month"
+                        ]
+                    },
+                    "status": {
+                        "$ref": "#/definitions/Status"
+                    },
+                    "updatedDate": {
+                        "$ref": "#/definitions/Date",
+                        "required": [
+                            "year",
+                            "month"
+                        ]
+                    },
+                    "url": {
+                        "$ref": "#/definitions/URL"
+                    },
+                    "tags": {
+                        "$ref": "#/definitions/Tags"
+                    },
+                    "publishedContents": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "$ref": "#/definitions/PublishedContent"
                     }
                 },
-      "Status": {
-      "type": "string",
-      "enum": [
-        "D",
-        "C",
-        "A",
-        "H",
-        null
-      ]
-    },
-        "Date": {
-            
-            "$ref": "#/definitions/Date",
-            "required": [
-                "year",
-                "month",
-                "day"
+                "additionalProperties": false,
+                "required": [
+                    "id",
+                    "version",
+                    "publicationDate",
+                    "status",
+                    "url"
+                ]
+            }
+        },
+        "PublishedContent": {
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "contentMediaType": {
+                        "type": "string"
+                    },
+                    "functionalArea": {
+                        "type": "string"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "$ref": "#/definitions/Status"
+                    },
+                    "version": {
+                        "type": "string"
+                    },
+                    "date": {
+                        "$ref": "#/definitions/Date",
+                        "required": [
+                            "year",
+                            "month",
+                            "day"
+                        ]
+                    },
+                    "fileName": {
+                        "type": "string"
+                    },
+                    "url": {
+                        "$ref": "#/definitions/URL"
+                    },
+                    "abstract": {
+                        "type": "string"
+                    },
+                    "tags": {
+                        "$ref": "#/definitions/Tags"
+                    }
+                },
+                "required": [
+                    "id",
+                    "contentMediaType",
+                    "functionalArea",
+                    "title",
+                    "status",
+                    "version",
+                    "date",
+                    "fileName",
+                    "url"
+                ],
+                "additionalProperties": false
+            }
+        },
+        "Status": {
+            "type": "string",
+            "enum": [
+                "D",
+                "C",
+                "A",
+                "H",
+                null
             ]
         },
-                "URL": {
-             "type": "string",
-             "format": "uri"
+        "Date": {
+            "type": "object",
+            "properties": {
+                "year": {
+                    "type": "string",
+                    "pattern": "^[0-9]{4}$"
+                },
+                "month": {
+                    "type": "string",
+                    "pattern": "^0[1-9]|1[012]$"
+                },
+                "date": {
+                    "type": "string",
+                    "pattern": "^[1-31]{2}$"
+                }
+            }
+        },
+        "URL": {
+            "type": "string",
+            "format": "uri"
         },
         "Tags": {
-              "items": {
-                    "type": "string"
+            "items": {
+                "type": "string"
+            }
         }
     }
-}
 }
