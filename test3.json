@@ -164,6 +164,20 @@
                 "publishedContents": {
                     "type": "array",
                     "uniqueItems": true,
+                    "$ref":"#/definitions/PublishedContent"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "id",
+                "version",
+                "publicationDate",
+                "status",
+                "url"
+            ]
+        }
+        },
+                    "PublishedContent": {
                     "items": {
                         "type": "object",
                         "properties": {
@@ -219,18 +233,7 @@
                         ],
                         "additionalProperties": false
                     }
-                }
-            },
-            "additionalProperties": false,
-            "required": [
-                "id",
-                "version",
-                "publicationDate",
-                "status",
-                "url"
-            ]
-        }
-        },
+                },
       "Version": {
                   "type": "string"
                 },
