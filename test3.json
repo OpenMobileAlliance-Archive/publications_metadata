@@ -36,7 +36,7 @@
                     "type": "string"
                 },
                 "version": {
-                    "$ref": "#/definitions/Version"
+                    "type": "string"
                 },
                 "url": {
                     "$ref": "#/definitions/URL"
@@ -90,10 +90,10 @@
                      "uniqueItems": true,
                     "$ref": "#/definitions/Tags"
                 },
-                "projectVersions": {
+                "versions": {
                     "type": "array",
                     "uniqueItems": true,
-                    "$ref": "#/definitions/ProjectVersion"
+                    "$ref": "#/definitions/Version"
                 }
             },
             "additionalProperties": false,
@@ -132,7 +132,7 @@
             },
             "additionalProperties": false
         },
-        "ProjectVersion": {
+        "Version": {
             "items": {
             "type": "object",
             "properties": {
@@ -233,9 +233,6 @@
                         ],
                         "additionalProperties": false
                     }
-                },
-      "Version": {
-                  "type": "string"
                 },
       "Status": {
       "type": "string",
