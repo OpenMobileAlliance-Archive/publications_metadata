@@ -36,7 +36,7 @@
                     "type": "string"
                 },
                 "version": {
-                    "type": "string"
+                    "$ref": "#/definitions/Version"
                 },
                 "url": {
                     "$ref": "#/definitions/URL"
@@ -86,14 +86,14 @@
                     "$ref": "#/definitions/URL"
                 },
                 "tags": {
+                     "type": "array",
+                     "uniqueItems": true,
                     "$ref": "#/definitions/Tags"
                 },
-                "versions": {
+                "projectVersions": {
                     "type": "array",
                     "uniqueItems": true,
-                    "items": {
-                        "$ref": "#/definitions/Version"
-                    }
+                    "$ref": "#/definitions/ProjectVersion"
                 }
             },
             "additionalProperties": false,
@@ -132,11 +132,8 @@
             },
             "additionalProperties": false
         },
-        "URL": {
-        },
-        "Tags": {
-        },
-        "Version": {
+        "ProjectVersion": {
+            "items": {
             "type": "object",
             "properties": {
                 "id": {
@@ -232,7 +229,21 @@
                 "status",
                 "url"
             ]
+        }
         },
+      "Version": {
+                  "type": "string"
+                },
+      "Status": {
+      "type": "string",
+      "enum": [
+        "D",
+        "C",
+        "A",
+        "H",
+        null
+      ]
+    },
         "Date": {
             
             "$ref": "#/definitions/Date",
@@ -241,6 +252,15 @@
                 "month",
                 "day"
             ]
+        },
+                "URL": {
+             "type": "string",
+             "format": "uri"
+        },
+        "Tags": {
+              "items": {
+                    "type": "string"
         }
     }
+}
 }
