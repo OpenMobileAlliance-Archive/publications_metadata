@@ -7,258 +7,272 @@
   "default": "default_value",
   "type": "object",
   "properties": {
-    "publisher": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "abbreviation": {
-          "type": "string"
-        },
-        "version": {
-          "type": "string"
-        },
-        "url": {
-          "$ref": "#/definitions/URL"
-        },
-        "about": {
-          "type": "string"
-        },
-        "email": {
-          "type": "string",
-          "format": "email"
-        }
+      "publisher": {
+          "type": "object",
+          "$ref": "#/definitions/Publisher"
       },
-      "additionalProperties": false,
-      "required": [
-        "id",
-        "name",
-        "abbreviation",
-        "version",
-        "url",
-        "about",
-        "email"
-      ]
-    },
-    "projects": {
-      "type": "array",
-      "uniqueItems": true,
-      "items": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "abbreviation": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "resources": {
-            "type": "array",
-            "uniqueItems": true,
-            "items": {
-              "type": "object",
-              "minItems": 1,
-              "uniqueItems": true,
-              "properties": {
-                "resourceType": {
-                  "type": "string",
-                  "enum": [
-                    "Logo",
-                    "Image",
-                    "Issue",
-                    "Registry",
-                    "Editor",
-                    "Overview",
-                    "MD2HTML",
-                    "Dependency",
-                    null
-                  ]
-                },
-                "name": {
+      "projects": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+              "$ref": "#/definitions/Project"
+          }
+      }
+  },
+  "required": [
+      "publisher",
+      "projects"
+  ],
+  "definitions": {
+      "Publisher": {
+          "properties": {
+              "id": {
                   "type": "string"
-                },
-                "url": {
-                  "$ref": "#/definitions/URL"
-                }
               },
-              "additionalProperties": false
-            }
-          },
-          "url": {
-            "$ref": "#/definitions/URL"
-          },
-          "tags": {
-            "$ref": "#/definitions/Tags"
-          },
-          "versions": {
-            "type": "array",
-            "uniqueItems": true,
-            "items": {
-              "type": "object",
-              "properties": {
-                "id": {
+              "name": {
                   "type": "string"
-                },
-                "version": {
+              },
+              "abbreviation": {
                   "type": "string"
-                },
-                "publicationDate": {
-                  "$ref": "#/definitions/Date",
-                  "required": [
-                    "year",
-                    "month",
-                    "day"
-                  ]
-                },
-                "status": {
-                  "$ref": "#/definitions/Status"
-                },
-                "updatedDate": {
-                  "$ref": "#/definitions/Date",
-                  "required": [
-                    "year",
-                    "month"
-                  ]
-                },
-                "url": {
+              },
+              "version": {
+                  "type": "string"
+              },
+              "url": {
                   "$ref": "#/definitions/URL"
-                },
-                "tags": {
-                  "$ref": "#/definitions/Tags"
-                },
-                "publishedContents": {
+              },
+              "about": {
+                  "type": "string"
+              },
+              "email": {
+                  "type": "string",
+                  "format": "email"
+              }
+          },
+          "additionalProperties": false,
+          "required": [
+              "id",
+              "name",
+              "abbreviation",
+              "version",
+              "url",
+              "about",
+              "email"
+          ]
+      },
+      "Project": {
+          "type": "object",
+          "properties": {
+              "id": {
+                  "type": "string"
+              },
+              "name": {
+                  "type": "string"
+              },
+              "abbreviation": {
+                  "type": "string"
+              },
+              "description": {
+                  "type": "string"
+              },
+              "resources": {
                   "type": "array",
                   "uniqueItems": true,
                   "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      },
-                      "contentMediaType": {
-                        "type": "string"
-                      },
-                      "functionalArea": {
-                        "type": "string"
-                      },
-                      "title": {
-                        "type": "string"
-                      },
-                      "status": {
-                        "$ref": "#/definitions/Status"
-                      },
-                      "version": {
-                        "type": "string"
-                      },
-                      "date": {
-                        "$ref": "#/definitions/Date",
-                        "required": [
-                          "year",
-                          "month",
-                          "day"
-                        ]
-                      },
-                      "fileName": {
-                        "type": "string"
-                      },
-                      "url": {
-                        "$ref": "#/definitions/URL"
-                      },
-                      "abstract": {
-                        "type": "string"
-                      },
-                      "tags": {
-                        "$ref": "#/definitions/Tags"
-                      }
-                    },
-                    "required": [
-                      "id",
-                      "contentMediaType",
-                      "functionalArea",
-                      "title",
-                      "status",
-                      "version",
-                      "date",
-                      "fileName",
-                      "url"
-                    ],
-                    "additionalProperties": false
+                      "$ref": "#/definitions/Resource"
                   }
-                }
+              },
+              "url": {
+                  "$ref": "#/definitions/URL"
+              },
+              "tags": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "$ref": "#/definitions/Tags"
+              },
+              "versions": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "$ref": "#/definitions/Version"
+              }
+          },
+          "additionalProperties": false,
+          "required": [
+              "id",
+              "name",
+              "description",
+              "url"
+          ]
+      },
+      "Resource": {
+          "type": "object",
+          "minItems": 1,
+          "uniqueItems": true,
+          "properties": {
+              "resourceType": {
+                  "type": "string",
+                  "enum": [
+                      "Logo",
+                      "Image",
+                      "Issue",
+                      "Registry",
+                      "Editor",
+                      "Overview",
+                      "MD2HTML",
+                      "Dependency",
+                      null
+                  ]
+              },
+              "name": {
+                  "type": "string"
+              },
+              "url": {
+                  "$ref": "#/definitions/URL"
+              }
+          },
+          "additionalProperties": false
+      },
+      "Version": {
+          "items": {
+              "type": "object",
+              "properties": {
+                  "id": {
+                      "type": "string"
+                  },
+                  "version": {
+                      "type": "string"
+                  },
+                  "publicationDate": {
+                      "$ref": "#/definitions/Date",
+                      "required": [
+                          "year",
+                          "month"
+                      ]
+                  },
+                  "status": {
+                      "$ref": "#/definitions/Status"
+                  },
+                  "updatedDate": {
+                      "$ref": "#/definitions/Date",
+                      "required": [
+                          "year",
+                          "month"
+                      ]
+                  },
+                  "url": {
+                      "$ref": "#/definitions/URL"
+                  },
+                  "tags": {
+                      "$ref": "#/definitions/Tags"
+                  },
+                  "publishedContents": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "$ref": "#/definitions/PublishedContent"
+                  }
               },
               "additionalProperties": false,
               "required": [
-                "id",
-                "version",
-                "publicationDate",
-                "status",
-                "url"
+                  "id",
+                  "version",
+                  "publicationDate",
+                  "status",
+                  "url"
               ]
-            }
           }
-        },
-        "additionalProperties": false,
-        "required": [
-          "id",
-          "name",
-          "description",
-          "url"
-        ]
-      }
-    }
-  },
-  "required": [
-    "publisher",
-    "projects"
-  ],
-  "definitions": {
-    "Date": {
-      "type": "object",
-      "properties": {
-        "year": {
+      },
+      "PublishedContent": {
+          "items": {
+              "type": "object",
+              "properties": {
+                  "id": {
+                      "type": "string"
+                  },
+                  "contentMediaType": {
+                      "type": "string"
+                  },
+                  "functionalArea": {
+                      "type": "string"
+                  },
+                  "title": {
+                      "type": "string"
+                  },
+                  "status": {
+                      "$ref": "#/definitions/Status"
+                  },
+                  "version": {
+                      "type": "string"
+                  },
+                  "date": {
+                      "$ref": "#/definitions/Date",
+                      "required": [
+                          "year",
+                          "month",
+                          "day"
+                      ]
+                  },
+                  "fileName": {
+                      "type": "string"
+                  },
+                  "url": {
+                      "$ref": "#/definitions/URL"
+                  },
+                  "abstract": {
+                      "type": "string"
+                  },
+                  "tags": {
+                      "$ref": "#/definitions/Tags"
+                  }
+              },
+              "required": [
+                  "id",
+                  "contentMediaType",
+                  "functionalArea",
+                  "title",
+                  "status",
+                  "version",
+                  "date",
+                  "fileName",
+                  "url"
+              ],
+              "additionalProperties": false
+          }
+      },
+      "Status": {
           "type": "string",
-          "pattern": "^[0-9]{4}$"
-        },
-        "month": {
+          "enum": [
+              "D",
+              "C",
+              "A",
+              "H",
+              null
+          ]
+      },
+      "Date": {
+          "type": "object",
+          "properties": {
+              "year": {
+                  "type": "string",
+                  "pattern": "^[0-9]{4}$"
+              },
+              "month": {
+                  "type": "string",
+                  "pattern": "^0[1-9]|1[012]$"
+              },
+              "date": {
+                  "type": "string",
+                  "pattern": "^[1-31]{2}$"
+              }
+          }
+      },
+      "URL": {
           "type": "string",
-          "pattern": "^0[1-9]|1[012]$"
-        },
-        "date": {
-          "type": "string",
-          "pattern": "^[1-31]{2}$"
-        }
+          "format": "uri"
+      },
+      "Tags": {
+          "items": {
+              "type": "string"
+          }
       }
-    },
-    "Tags": {
-      "type": "array",
-      "uniqueItems": true,
-      "items": {
-        "type": "string"
-      }
-    },
-    "Status": {
-      "type": "string",
-      "enum": [
-        "D",
-        "C",
-        "A",
-        "H",
-        null
-      ]
-    },
-    "URL": {
-      "type": "string",
-      "format": "uri"
-    }
   }
 }
